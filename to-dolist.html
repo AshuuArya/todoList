@@ -2,20 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO list</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="to-do.png">
+    <title>Task Horizon</title>
 </head>
 <body>
-    <p>TODO List</p>
-    <input placeholder="TODO name" class="js-name-input">
-    <button onclick="
-        addTodo();
-    ">Add</button>
+    <main class="container" role="main">
+        <header>
+            <h1>Task Horizon</h1>
+            <form class="input-section" id="todo-form">
+                <input 
+                    id="todo-input" 
+                    type="text" 
+                    placeholder="Enter your mission..." 
+                    class="input" 
+                    aria-label="Add new task"
+                    required
+                />
+                <button 
+                    id="add-button" 
+                    type="submit" 
+                    class="btn btn-add"
+                    aria-label="Add task"
+                >
+                    <span class="btn-text">Launch</span>
+                </button>
+            </form>
+        </header>
 
-    <p></p>
-    
-    <script src="script.js">
-        
-    </script>
+        <section class="todos-filter" aria-label="Task controls">
+            <button 
+                id="delete-selected" 
+                class="btn btn-error"
+                aria-label="Delete completed tasks"
+            >
+                Clear Completed
+            </button>
+            <button 
+                id="delete-all" 
+                class="btn btn-error"
+                aria-label="Delete all tasks"
+            >
+                Reset All
+            </button>
+        </section>
+
+        <section class="todos-list" id="all-todos" aria-live="polite"></section>
+
+        <footer class="filters" aria-label="Task filters and stats">
+            <div class="dropdown">
+                <button 
+                    class="dropbtn" 
+                    aria-haspopup="true" 
+                    aria-expanded="false"
+                >
+                    View Sectors
+                </button>
+                <div class="dropdown-content" role="menu">
+                    <a href="#" id="all" role="menuitem">All Sectors</a>
+                    <a href="#" id="rem" role="menuitem">Active</a>
+                    <a href="#" id="com" role="menuitem">Completed</a>
+                </div>
+            </div>
+
+            <div class="task-stats">
+                <p class="completed-task">
+                    Done: <span id="c-count" aria-label="Completed count">0</span>
+                </p>
+                <p class="remaining-task">
+                    Total: <span id="r-count" aria-label="Total count">0</span>
+                </p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
