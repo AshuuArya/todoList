@@ -23,6 +23,7 @@ document.addEventListener("click", (e) => {
     if (e.target.id === "com") viewCompleted();
 });
 
+
 // Core Functions
 function update() {
     comdoList = todoList.filter((task) => task.complete);
